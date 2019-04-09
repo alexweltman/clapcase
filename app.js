@@ -9,11 +9,12 @@ app.get('/', (req, res) => res.send('Working!'));
 app.post('/clapcase', (req, res) => {
     if (!req.body) return res.sendStatus(400);
 
-    console.log(req.body);
-
     const text = req.body.text.split(' ').join(':clap:');
 
-    res.json({text});
+    res.json({
+        "response_type": "in_channel",
+        text
+    });
 });
 
 const port = process.env.PORT || 8000
