@@ -1,0 +1,17 @@
+{
+  "name": "clapcase",
+  "version": "1.0.0",
+  "description": "turns spaces to 👏  ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Weltman",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "engines": {
+    "node": "11.x"
+  }
+}
