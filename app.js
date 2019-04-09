@@ -1,15 +1,19 @@
 'use strict'
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
 
-app.get('/', (req, res) => res.send('Working!'))
-app.get('/clapcase', (req, res) => {
-    if (!req.query.string) {
-        res.status(400);
-        res.send('no empty strings allowed');
-    }
+app.use(bodyParser.urlencoded({ extended: true }));
+app.get('/', (req, res) => res.send('Working!'));
 
-    res.send(req.query.string.split(' ').join(':clap:'));
+app.post('/clapcase', (req, res) => {
+    if (!req.body) return res.sendStatus(400);
+
+    console.log(req.body);
+
+    const text = req.body.text.split(' ').join(':clap:');
+
+    res.json({text});
 });
 
 const port = process.env.PORT || 8000
